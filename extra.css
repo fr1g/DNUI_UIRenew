@@ -5,3 +5,7 @@
     font-family: 'segoe-fluent-icons';
     src: url(./assets/segoe-fluent-icon.ttf);
 }
+i{
+    font-style: normal;
+    display: inline-block;
+}

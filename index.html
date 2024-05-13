@@ -7,10 +7,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="extra.css">
+    <style>
+        .selected{
+            --tw-bg-opacity: .39 !important;
+        }
+    </style>
 </head>
 <body class="max-h-screen overflow-hidden overflow-x-hidden overflow-y-hidden h-screen w-full max-w-full">
     <div class="app ?frame ?ui-frame h-full w-full flex flex-col flex-wrap ">
-        <iframe class="transition w-full grow" src="./-MainPage.html" id="frame">
+        <div class="w-0 h-0 opacity-0 bg-opacity-30"></div>
+        <iframe class="transition w-full grow" src="" id="frame">
             <!-- 相当于route-view -->
         </iframe>
         <div id="navigation" class="grid grid-cols-5 gap-1.5 sm:gap-2 md:gap-2.5 lg:gap-3.5 p-0.5  mx-1 sm:mx-1.5 md:mx-2 lg:mx-2.5 mt-0 pt-1 pb-1 border-t select-none max-h-12?" >
@@ -39,10 +45,26 @@
 </body>
 <script>
     // 仅供展示使用.
-    var navigation = document.getElementById('navigation'), frame = document.getElementById('frame');
+    var navigation = document.getElementById('navigation'), 
+        frame = document.getElementById('frame'), 
+        current = '-MainPage'
+        selectedClassName = 'selected';
     navigation.addEventListener('click', (e) => {
         if(!`${e.target.classList}`.includes('pressable')) return;
-        frame.setAttribute('src', `./${(e.target.id == '') ? e.target.parentElement.id : e.target.id}.html`);
+        current = `${(e.target.id == '') ? e.target.parentElement.id : e.target.id}`;
+        ApplyNewView();
     });
+
+    const ApplyNewView = () => {
+        frame.setAttribute('src', `./${current}.html`);
+        for(let sub of navigation.children){
+            sub.classList.remove(selectedClassName);
+        }
+        setTimeout(() => {
+            document.getElementById(current).classList.add(selectedClassName);
+        }, 321);
+    }
+
+    ApplyNewView();
 </script>
 </html>
