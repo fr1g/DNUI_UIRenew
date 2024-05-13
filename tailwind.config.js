@@ -3,12 +3,12 @@ module.exports = {
   content: [
     './*.{html, js, css}'
   ],
-  theme: {
+  theme: { 
     extend: {
       
     },
   },
-  plugins: [],
+  plugins: [], 
   darkMode: 'class'
 }
 
