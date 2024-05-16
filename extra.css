@@ -9,3 +9,32 @@ i{
     font-style: normal;
     display: inline-block;
 }
+
+.fade-in {
+    animation: .5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards
+        fain;
+    -webkit-animation: .5s cubic-bezier(0.075, 0.82, 0.165, 1)
+        forwards fain !important;
+}
+.fade-au {
+    animation: .5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards
+        faou;
+    -webkit-animation: .5s cubic-bezier(0.075, 0.82, 0.165, 1)
+        forwards faou !important;
+}
+@keyframes fain {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes faou {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

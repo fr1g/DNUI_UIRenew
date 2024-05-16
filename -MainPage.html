@@ -7,12 +7,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="extra.css">
+
+    <script src="./easy-carousel.js"></script>
 </head>
 <body xx class="bg-blue-50 bg-opacity-80 w-full h-screen ">
     <div class="?title-area shadow-xl relative bg-slate-50 rounded-b-lg" style="height: 16rem;">
-        <div class="?carousel w-full h-44 bg-orange-300 grid justify-items-center justify-center items-center">
-            <div class="italic opacity-50">Carousel Here</div>
+        <div id="HOME_CAROUSEL" class="?carousel w-full h-44 bg-orange-300 grid justify-items-center justify-center items-center">
+            <!-- <div class="italic opacity-50">Carousel Here</div> -->
         </div>
+        <script>
+            let listpics = [
+                './assets/carousel/1.png',
+                './assets/carousel/2.png',
+                './assets/carousel/3.png',
+            ];
+            Initial('HOME_CAROUSEL', listpics);
+        </script>
         <div class="absolute  m-auto h-24 left-0 right-auto px-2" style="top: 46.8%;">
             <div class="flex flex-wrap translate-y-2">
                 <div class="?institut-logo w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-transparent bg-cover" style="background-image: url(./assets/OIP.jpeg);"></div>
