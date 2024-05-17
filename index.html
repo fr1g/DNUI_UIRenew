@@ -14,7 +14,7 @@
     </style>
 </head>
 <body class="max-h-screen overflow-hidden overflow-x-hidden overflow-y-hidden h-screen w-full max-w-full">
-    <div class="app ?frame ?ui-frame h-full w-full flex flex-col flex-wrap ">
+    <div class="app ?frame ?ui-frame h-full w-full flex flex-col flex-wrap overflow-x-hidden overflow-y-hidden">
         <div class="w-0 h-0 opacity-0 bg-opacity-30"></div>
         <iframe class="transition w-full grow" src="" id="frame">
             <!-- 相当于route-view -->
@@ -47,7 +47,7 @@
     // 仅供展示使用.
     var navigation = document.getElementById('navigation'), 
         frame = document.getElementById('frame'), 
-        current = '-MainPage'
+        current = '-Map',
         selectedClassName = 'selected';
     navigation.addEventListener('click', (e) => {
         if(!`${e.target.classList}`.includes('pressable')) return;
@@ -63,6 +63,11 @@
         setTimeout(() => {
             document.getElementById(current).classList.add(selectedClassName);
         }, 321);
+    }
+
+    function OpenLink(link = null){
+        if (link == null) return;
+        frame.setAttribute('src', link);
     }
 
     ApplyNewView();

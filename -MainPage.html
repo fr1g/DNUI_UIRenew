@@ -10,9 +10,9 @@
 
     <script src="./easy-carousel.js"></script>
 </head>
-<body xx class="bg-blue-50 bg-opacity-80 w-full h-screen ">
+<body xx class="bg-blue-50 bg-opacity-80 w-full h-screen fade-in">
     <div class="?title-area shadow-xl relative bg-slate-50 rounded-b-lg" style="height: 16rem;">
-        <div id="HOME_CAROUSEL" class="?carousel w-full h-44 bg-orange-300 grid justify-items-center justify-center items-center">
+        <div id="HOME_CAROUSEL" style="backdrop-filter: blur(1px);" class="?carousel w-full opacity-50 h-44 bg-zinc-100 grid justify-items-center justify-center items-center">
             <!-- <div class="italic opacity-50">Carousel Here</div> -->
         </div>
         <script>
@@ -21,43 +21,121 @@
                 './assets/carousel/2.png',
                 './assets/carousel/3.png',
             ];
-            Initial('HOME_CAROUSEL', listpics);
+            // 所有的轮播图路径写在上面数组里
+            Initial('HOME_CAROUSEL', listpics, 'opacity-70 bg-zinc-100', '.7');
         </script>
-        <div class="absolute  m-auto h-24 left-0 right-auto px-2" style="top: 46.8%;">
+        <div class="absolute  m-auto h-24 left-0 right-auto pl-1 sm:pl-2" style="top: 46.8%;">
             <div class="flex flex-wrap translate-y-2">
                 <div class="?institut-logo w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-transparent bg-cover" style="background-image: url(./assets/OIP.jpeg);"></div>
-                <div class="h-full grow p-3 grid items-center px-3.5">
-                    <h1 class="text-2xl font-semibold scale-105 translate-y-1">大连东软信息学院</h1>
-                    <h3 class="-translate-x-1 opacity-70 translate-y-0.5">精勤博学 · 学以致用</h3>
+                <div class="h-full grow p-3 grid items-center translate-y-1 sm:translate-y-0 pl-3.5 ">
+                    <h1 
+                        style="/**/ 
+                                text-shadow: rgba(0, 0, 0, 0.9) 0 0 0, white .5px .5px 1.5px, ghostwhite -.5px -.5px 1.5px; 
+                            /**/"
+                        class="block text-xl sm:text-2xl font-extrabold scale-110 translate-y-1 ">大连东软信息学院</h1>
+                    <h3 class="-translate-x-1.5 opacity-70 translate-y-0.5">精勤博学 · 学以致用</h3>
                     <!-- <h5 class="italic opacity-40 text-xs -translate-x-1"></h5> -->
                 </div>
             </div>
-            <p class="text-xs translate-y-3 px-2 mt-1 text-right pr-1">
-                辽宁·大连 <span class="font-semibold">建于2000年的综合类民办院校</span> <br>
-                辽宁省教育系统雷锋式学校
-            </p>
         </div>
+        <p class="text-xs translate-y-3 px-2 mt-1 text-right pr-1 absolute bottom-5 right-3">
+            辽宁·大连 <span class="font-semibold">建于2000年的综合类民办院校</span> <br>
+            辽宁省教育系统雷锋式学校
+        </p>
     </div>
     <div class="real-body? p-1 mx-auto px-2.5 mt-3 pb-10">
         <div class="?group mt-1.5 p-1">
             <h6 class="text-lg font-semibold"><i class="align-bottom translate-y-0.5">&#xe81c;</i> 常用功能</h6>
-            <div class="w-full h-32 bg-gradient-to-b from-zinc-300 via-stone-300 to-slate-200 mt-1 rounded-lg shadow">
-
+            <div class="w-full h-20 bg-gradient-to-b p-2 items-center grid grid-cols-3 gap-2.5 from-zinc-200 via-stone-200 to-slate-200 mt-1 rounded-lg shadow">
+                <div 
+                 class="pressable pt-1.5 scale-105 rounded-lg h-full grid items-center bg-blue-100 bg-opacity-0 hover:bg-opacity-50 active:bg-opacity-90 transition">
+                    <div class="my-auto">
+                        <div class="text-center text-xl scale-125 mb-1.5">&#xe7c1;</div>
+                        <div class="text-center text-xs -translate-y-1.5 scale-100 mt-1.5 font-semibold" style="font-size: .74rem">地点汇总</div>
+                    </div>
+                </div>   
+                <div 
+                 class="pressable pt-1.5 scale-105 rounded-lg h-full grid items-center bg-blue-100 bg-opacity-0 hover:bg-opacity-50 active:bg-opacity-90 transition">
+                    <div class="my-auto">
+                        <div class="text-center text-xl scale-125 mb-1.5">&#xe7bc;</div>
+                        <div class="text-center text-xs -translate-y-1.5 scale-100 mt-1.5 font-semibold" style="font-size: .74rem">学校简介</div>
+                    </div>
+                </div>                   
+                <div 
+                class="pressable pt-1.5 scale-105 rounded-lg h-full grid items-center bg-blue-100 bg-opacity-0 hover:bg-opacity-50 active:bg-opacity-90 transition">
+                   <div class="my-auto">
+                       <div class="text-center text-xl scale-125 mb-1.5">&#xe805;</div>
+                       <div class="text-center text-xs -translate-y-1.5 scale-100 mt-1.5 font-semibold" style="font-size: .74rem">预约入校</div>
+                   </div>
+               </div>   
             </div>
         </div>
         <div class="?group mt-1.5 p-1">
             <h6 class="text-lg font-semibold"><i class="align-bottom translate-y-0.5">&#xe9ca;</i> 校园天气</h6>
-            <div class="w-full h-32 bg-gradient-to-br from-sky-400 via-blue-300 to-cyan-200 mt-1 rounded-lg shadow">
-
+            <div class="w-full h-32 bg-gradient-to-br grid grid-cols-2 from-sky-400 via-blue-300 to-cyan-200 mt-1 rounded-lg shadow">
+                <div class="p-3 relative">
+                    <h5 class="text-3xl font-semibold text-blue-50">大连市</h5>
+                    <h6 class="text-sm absolute bottom-3.5 text-sky-50">天气的文字描述<br>写在这里</h6>
+                </div>
+                <div class="grid items-center justify-items-end p-3">
+                    <h6 class="font-bold text-5xl bg-clip-text bg-gradient-to-bl opacity-90 from-teal-50 via-cyan-100 to-emerald-50 text-transparent pr-1"><span>11</span>°C</h6>
+                </div>
             </div>
         </div>
         <div class="?group mt-1.5 p-1">
             <h6 class="text-lg font-semibold"><i class="align-bottom translate-y-0.5">&#xed54;</i> 新闻轶事</h6>
-            <div class="w-full h-32 bg-gradient-to-br from-rose-300 via-pink-300 to-fuchsia-200 mt-1 rounded-lg shadow">
-
+            <div id="news-main" class="w-full h-32 bg-gradient-to-br transition-all animate-pulse grid justify-center justify-items-center items-center from-rose-300 via-pink-300 to-fuchsia-200 mt-1 rounded-lg shadow">
+                <div id="news-item">
+                    <p class="text-center opacity-50">正在获取</p>
+                    <div class="hidden fade-in p-3.5">
+                        <h6 class="text-xl font-serif font-semibold"></h6>
+                        <a href="" id="openNews" target="_self" class="block relative mt-5 text-sm font-mono ">来源: 新闻社 <span class="scale-75 absolute -bottom-0.5 inline-block">&#xe8a7;</span></a>
+                        <!-- 这里可以用微信提供的方式来打开页面, 而不是在小程序页面/小程序嵌套子页面打开. 可有可无. -->
+                    </div>
+                </div>
             </div>
-        </div>
+            <script>
+                let xhr = new XMLHttpRequest(), result, filteredNewsList = [];
+                xhr.open('get', 'https://www.neusoft.edu.cn');
+                xhr.onreadystatechange = () => {
+                    if(xhr.status != 200) { result = '[err]'; ApplyNews(); return; }
+                    if(xhr.readyState != 4) return;
+                    // console.log(xhr.responseText)
+                    try{
+                        result = xhr.responseText.split('探索东软<span class="subtitle">Explore</span>')[1]
+                                             .replace(/<style[^>]*?>[^]*?<\/style>/gi, '')
+                                             .replace(/<div class="explore-key wow fadeInDown animated"[^>]*?>[^]*?<\/div>/gi, '')
+                                             .split('<div class="swiper-wrapper">')[1]
+                                             .split('<div class="swiper-slide">');
+                    }catch(ex){
+                        result = '[err]';
+                    }
+                    ApplyNews();
+                }
+                xhr.send();
 
+                const ApplyNews = () => {
+                    let newsContainer = document.getElementById('news-item');
+                    if(result == '[err]'){
+                        newsContainer.children[0].innerHTML = '获取失败';
+                        return;
+                    }
+                    for(let single of result){
+                        if(single.includes('<p>来源：东软新闻社</p>')) 
+                            filteredNewsList.push({title: single.split('h3>')[1].replace('</', ''), link: single.split('href=')[1].split('" target=')[0].replace('"', '')});
+                    }
+                    setTimeout(() => {
+                        newsContainer.children[0].classList.add('hidden');
+                        newsContainer.children[1].children[0].innerHTML = filteredNewsList[0].title;
+                        newsContainer.children[1].children[1].setAttribute('href', filteredNewsList[0].link);
+                        newsContainer.children[1].classList.remove('hidden');
+                        document.getElementById('news-main').classList.replace('animate-pulse', 'fade-in')
+                    }, 3210); // 模拟加载中
+                }
+
+            </script>
+        </div>
+        <i class="hidden "></i>
     </div>
 </body>
 </html>
