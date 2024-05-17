@@ -8,58 +8,61 @@
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="extra.css">
 </head>
-<body xx class="bg-blue-50 w-full h-screen fade-in overflow-x-hidden overflow-y-hidden flex flex-col flex-wrap">
-    <div class="grow ?map-content relative bg-gradient-to-b from-blue-300 to-teal-50">
-        <div id="map-control-group" class=" bg-blue-50 z-10 py-2 shadow-md overflow-x-hidden overflow-y-auto w-screen" >
-            <div class="grid grid-cols-3 p-1 mx-1.5 px-2 bg-white  bg-opacity-50 rounded-lg gap-0 shadow-md">
-                <div id="inputs-for-destination" class="col-span-2 grid h-full rouunded-lg max-w-9/12 justify-self-center?">
-                    <input type="text" placeholder="出发地" class="bg-transparent focus:outline-none pl-1.5 focus:bg-white focus:border-zinc-100 border border-transparent rounded-t-lg bg-opacity-60 w-11/12 p-1 text-lg transition  border-b-zinc-200" />
-                    <input type="text" placeholder="目的地" class="bg-transparent focus:outline-none pl-1.5 focus:bg-white focus:border-zinc-100 border border-transparent rounded-b-lg bg-opacity-60 w-11/12 p-1 text-lg transition  border-t-zinc-200" />
-                </div>
-                <div id="buttons-control" class="h-full scale-125 flex flex-wrap  items-center justify-items-center justify-evenly">
-                    <div class="text-center h-min px-1.5 text-sm bg-blue-100 p-0.5 rounded-full">
-                        <span class="inline-block translate-y-0.5" style="rotate: 90deg;">
-                            &#xe8ab;
-                        </span>
+<body xx class="bg-blue-50 w-full min-h-screen overflow-y-scroll fade-in overflow-x-hidden z-10 ">
+    <div id="drag-frame" class="w-full absolute  z-30 " style="pointer-events: none; height: max-content; ">
+        <div class="w-0 pointer-events-none h-screen" id="drag-placeholder"></div>
+        <div class="rounded-t-lg bg-blue-50 " style="pointer-events: fill;">
+            <div id="map-control-group" class=" py-2 shadow-lg rounded-b-sm overflow-x-hidden overflow-y-auto w-screen" >
+                <div class="grid grid-cols-3 p-1.5 mx-2 px-2.5 bg-white  bg-opacity-50 rounded-lg gap-0 shadow-md">
+                    <div id="inputs-for-destination" class="col-span-2 -translate-x-1.5 grid h-full justify-items-center rounded-lg max-w-11/12 justify-self-center?">
+                        <input type="text" placeholder="出发地" class="bg-transparent focus:outline-none pl-1.5 focus:bg-white focus:border-zinc-100 border border-transparent rounded-t-lg bg-opacity-60 w-11/12 p-1 text-sm transition  border-b-zinc-200" />
+                        <input type="text" placeholder="目的地" class="bg-transparent focus:outline-none pl-1.5 focus:bg-white focus:border-zinc-100 border border-transparent rounded-b-lg bg-opacity-60 w-11/12 p-1 text-sm transition  border-t-zinc-200" />
                     </div>
-                    <div class="justify-self-center px-2 p-0.5 text-sm align-middle rounded-lg bg-teal-50 shadow ">
-                        路线
+                    <div id="buttons-control" class="h-full scale-125 flex flex-wrap  items-center justify-items-center justify-evenly">
+                        <div class="text-center h-min px-1.5 text-sm scale-100 md:scale-125 bg-blue-100 active:bg-blue-200 transition-all p-0.5 rounded-full">
+                            <span class="inline-block translate-y-0.5" style="rotate: 90deg;">
+                                &#xe8ab;
+                            </span>
+                            <span class="hidden md:inline-block">交换</span>
+                        </div>
+                        <div class="justify-self-center px-2 p-0.5 text-sm scale-100 md:scale-125 align-middle rounded-lg bg-teal-50 active:bg-teal-100 transition-all shadow ">
+                            <span class="hidden md:inline-block">规划</span>路线
+                        </div>
                     </div>
                 </div>
+                <ul 
+                    class="overflow-y-hidden overflow-x-auto max-w-screen
+                            grid grid-flow-col gap-1  mt-1 translate-y-1.5 
+                            border-b? px-1.5 pb-2  bg-white bg-opacity-5"
+                    style="
+                            grid-auto-columns: max-content;
+                            scroll-snap-type: x mandatory;
+                    ">
+                    <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
+                    <li class=" px-2 p-1 text-sm transition bg-blue-500 text-blue-50 bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">选中的地点</li>
+                    <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
+                    <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
+                    <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
+                    <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
+                    <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
+                    <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
+                    <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
+                    <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
+                    <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
+    
+                </ul>
             </div>
-            <ul 
-                class="overflow-y-hidden overflow-x-scroll max-w-screen
-                        grid grid-flow-col gap-1  mt-1 translate-y-1.5 
-                        border-b? px-1.5 pb-2  bg-white bg-opacity-5"
-                style="
-                        grid-auto-columns: max-content;
-                        overflow-x: scroll;
-                        scroll-snap-type: x mandatory;
-                ">
-                <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
-                <li class=" px-2 p-1 text-sm transition bg-blue-500 text-blue-50 bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">选中的地点</li>
-                <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
-                <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
-                <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
-                <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
-                <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
-                <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
-                <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
-                <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
-                <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
-
-            </ul>
+            <script>
+                let dragFrame = document.getElementById('drag-frame'), reserve = document.getElementById('map-control-group');
+                dragFrame.style.top = `-${window.getComputedStyle(reserve).height}`;
+                // 鉴于小程序窗口高度几乎不变, 只在初始化的时候计算需要预留的高度.
+            </script>
+            <div id="place" class="h-96"></div>
         </div>
-        <span class="inline-block m-auto absolute left-1 right-1 top-1/2 bottom-1/2 text-center opacity-50">地图放在这里, 覆盖掉整个元素</span>
-        <!--  -->
     </div>
-    <div class="bg-white p-2.5 px-3">
-        <div class="rounded-lg p-0.5 border text-center border-blue-300 bg-blue-200 opacity-70 hover:opacity-80 active:opacity-100 transition">
-            <span class="inline-block my-auto relative">
-                <span class="scale-75 translate-y-0.5 inline-block">&#xe7c1;</span>
-                查看全部 {{ x }}个地点
-            </span>
-        </div>
+    <div class="fixed bottom-0 top-0 left-0 right-0 h-screen w-full z-20 ?map-content bg-gradient-to-b from-blue-300 to-teal-50" style="pointer-events: fill;">
+        <span class="inline-block m-auto absolute left-1 right-1 top-1/2 bottom-1/2 text-center opacity-50 hover:opacity-60 active:opacity-100 transition">地图放在这里, 覆盖掉整个元素</span>
+        <!--  -->
     </div>
 </body>
 </html>
