@@ -9,11 +9,44 @@
     <link rel="stylesheet" href="extra.css">
 </head>
 <body xx class="bg-blue-50 w-full min-h-screen overflow-y-scroll fade-in overflow-x-hidden z-10 ">
-    <div id="drag-frame" class="w-full absolute  z-30 " style="pointer-events: none; height: max-content; ">
-        <div class="w-0 pointer-events-none h-screen" id="drag-placeholder"></div>
-        <div class="rounded-t-lg bg-blue-50 " style="pointer-events: fill;">
-            <div id="map-control-group" class=" py-2 shadow-lg rounded-b-sm overflow-x-hidden overflow-y-auto w-screen" >
-                <div class="grid grid-cols-3 p-1.5 mx-2 px-2.5 bg-white  bg-opacity-50 rounded-lg gap-0 shadow-md">
+    <div id="drag-frame" class="w-full absolute  z-30 " style="pointer-events: none; height: max-content; -webkit-user-drag: none;">
+        <div class="w-0 pointer-events-none h-screen" id="drag-placeholder" style="pointer-events: none; -webkit-user-drag: none;"></div>
+        <!-- 如果无法两指缩放地图, 需要将 ⬆️此元素的缩放事件重定向到地图元素. -->
+
+        <div id="drag-head" class="rounded-t-lg bg-blue-50 " style="-webkit-user-drag: element; pointer-events: fill; box-shadow: 0 -3px 16px rgba(169, 169, 169, 0.4);">
+            <div id="map-control-group" class=" py-2 shadow-lg? rounded-b-sm overflow-x-hidden overflow-y-auto w-screen" >
+                <!-- 按钮组样式1 -->
+                <div class="grid grid-cols-3 mx-2 mt-1 p-2.5 bg-gray-100  bg-opacity-50 rounded-lg gap-0 shadow-md" style="box-shadow: 0 0 9px rgba(169, 169, 169, 0.4);"">
+                    <div id="inputs-for-destination" class="col-span-full grid grid-cols-4 gap-3
+                    h-full justify-items-center rounded-lg w-full justify-self-center?">
+
+                        <input type="text" placeholder="目的地" class="block w-full col-span-3 bg-white bg-opacity-50 focus:outline-none focus:bg-opacity-90 focus:border-zinc-100 border border-transparent shadow rounded-lg  p-1 text-sm transition  " />
+                        <div 
+                            class="text-center h-full w-full px-1.5 text-sm shadow bg-teal-100 active:bg-teal-200 transition-all p-0.5 rounded-full">
+                            <div class="translate-y-0.5">
+                                <span class="inline-block translate-y-0.5">
+                                    &#xe816;
+                                </span>
+                                <span class="">路线</span>
+                            </div>
+                        </div>
+                        <!--  -->
+
+                        <input id="second-input" type="text" placeholder="出发地" class="block w-full col-span-3 bg-white bg-opacity-50 focus:outline-none focus:bg-opacity-90 focus:border-zinc-100 border border-transparent shadow rounded-lg  p-1 text-sm transition  " />
+                        <div 
+                            class="text-center h-full w-full px-1.5 text-sm shadow bg-blue-100 active:bg-blue-200 transition-all p-0.5 rounded-full">
+                            <div class="translate-y-0.5">
+                                <span class="inline-block translate-y-0.5" style="rotate: 90deg;">
+                                    &#xe8ab;
+                                </span>
+                                <span class="">交换</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 按钮组样式2 -->
+                <!-- <div class="grid grid-cols-3 p-1.5 mx-2 px-2.5 bg-white  bg-opacity-50 rounded-lg gap-0 shadow-md">
                     <div id="inputs-for-destination" class="col-span-2 -translate-x-1.5 grid h-full justify-items-center rounded-lg max-w-11/12 justify-self-center?">
                         <input type="text" placeholder="出发地" class="bg-transparent focus:outline-none pl-1.5 focus:bg-white focus:border-zinc-100 border border-transparent rounded-t-lg bg-opacity-60 w-11/12 p-1 text-sm transition  border-b-zinc-200" />
                         <input type="text" placeholder="目的地" class="bg-transparent focus:outline-none pl-1.5 focus:bg-white focus:border-zinc-100 border border-transparent rounded-b-lg bg-opacity-60 w-11/12 p-1 text-sm transition  border-t-zinc-200" />
@@ -29,8 +62,8 @@
                             <span class="hidden md:inline-block">规划</span>路线
                         </div>
                     </div>
-                </div>
-                <ul 
+                </div> -->
+                <ul id="tags"
                     class="overflow-y-hidden overflow-x-auto max-w-screen
                             grid grid-flow-col gap-1  mt-1 translate-y-1.5 
                             border-b? px-1.5 pb-2  bg-white bg-opacity-5"
@@ -51,13 +84,33 @@
                     <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
     
                 </ul>
+                <div class="bg-transparent mt-1 p-3">
+                    <div class="rounded-lg p-0.5 border text-center border-blue-300 bg-blue-200 opacity-70 hover:opacity-80 active:opacity-100 transition">
+                        <span class="inline-block my-auto relative">
+                            <span class="scale-75 translate-y-0.5 inline-block">&#xe7c1;</span>
+                            查看全部 {{ x }}个地点
+                        </span>
+                    </div>
+                </div>
             </div>
             <script>
-                let dragFrame = document.getElementById('drag-frame'), reserve = document.getElementById('map-control-group');
-                dragFrame.style.top = `-${window.getComputedStyle(reserve).height}`;
+                let dragFrame = document.getElementById('drag-frame'), 
+                    reserve = document.getElementById('map-control-group'),
+                    inputs = document.getElementById('inputs-for-destination');
+
+                const usingNewType = true; // ...
+                {
+                    if(usingNewType){
+                        dragFrame.style.top = `-${
+                            (parseFloat(document.getElementById('second-input').offsetTop) - parseFloat(document.getElementById('drag-head').offsetTop)) - 1
+                            }px`;
+                    } else dragFrame.style.top = `-${window.getComputedStyle(reserve).height}`;
+                }
                 // 鉴于小程序窗口高度几乎不变, 只在初始化的时候计算需要预留的高度.
             </script>
-            <div id="place" class="h-96"></div>
+            <div id="place" class="p-3">
+                <!-- 其余内容 -->
+            </div>
         </div>
     </div>
     <div class="fixed bottom-0 top-0 left-0 right-0 h-screen w-full z-20 ?map-content bg-gradient-to-b from-blue-300 to-teal-50" style="pointer-events: fill;">

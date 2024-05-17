@@ -7,8 +7,140 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="extra.css">
+    <style>
+        
+    </style>
 </head>
-<body xx class="bg-zinc-200 w-full h-screen fade-in">
-    Guide
+<body xx class="bg-blue-50 w-full h-screen fade-in flex flex-col overflow-hidden" style="max-height: 100vh;">
+    <div class="absolute scale-90 p-1 z-40 pointer-events-auto px-1.5 rounded-lg shadow-lg right-0 bottom-1 bg-blue-300 bg-opacity-70 hover:bg-opacity-80 active:bg-opacity-100 transition-all" 
+    onclick="document.getElementById('contents').scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    })">
+        回到顶部
+    </div>
+    <div class="w-full flex bg-blue-100 py-2 bg-opacity-80 shadow-md flex-wrap gap-1.5 p-1.5 z-30" id="search-box-frame">
+        <input type="text" placeholder="在本页搜索..." name="" id="" class="block transition-all fade-in  grow bg-white bg-opacity-50 focus:outline-none focus:bg-opacity-90 focus:border-zinc-100 border border-transparent shadow rounded-lg  p-1 text-sm  ">
+        <div class="searchButton? text-center  px-1.5 text-sm shadow bg-emerald-100 active:bg-emerald-200 transition-all p-0.5 rounded-lg">
+            <div class="translate-y-0.5">
+                <span class="">搜索</span>
+            </div>
+        </div>
+        <script>
+            let searchbox = document.getElementsByTagName('input')[0],
+                searchBoxHints = [
+                    '作息时间表',
+                    '图书馆阅览室',
+                    '自动售货机',
+                    '在本页搜索...',
+                ],
+                currentHint = 0, pauseFlashing = false;
+            searchbox.addEventListener('focus', () => {
+                pauseFlashing = true;
+                searchbox.value = searchBoxHints[currentHint - 1] ?? '';
+            });
+            searchbox.addEventListener('blur', () => {
+                pauseFlashing = false;
+                searchbox.value = null;
+            });
+            setTimeout(() => {
+                setInterval(() => {
+                    if(pauseFlashing) return;
+                    searchbox.classList.replace('fade-in', 'fade-au');
+                    setTimeout(() => {
+                        searchbox.setAttribute('placeholder', '');
+                    }, 333);
+                    setTimeout(() => {
+                        searchbox.setAttribute('placeholder', searchBoxHints[currentHint]);
+                        searchbox.classList.replace('fade-au', 'fade-in');
+                        currentHint ++;
+                        if(currentHint == searchBoxHints.length) currentHint = 0;
+                    }, 514);
+                }, 5000);
+            }, 1234);
+        </script>
+    </div>
+    <div class="grow overflow-x-hidden overflow-y-scroll p-3" id="contents">
+        <h3 class="text-2xl bg-clip-text my-2 bg-gradient-to-br from-blue-300 via-teal-500 to-sky-300 text-transparent font-semibold"><span class="text-3xl font-bold">校园</span>生活指南</h3>
+        <ul id="expansion-list">
+            <!-- 如果使用我的这套折叠栏, 需要在使用v-for时候像绑定key一样绑定一个递增的id, 否则无法使用 “仅一项展开” 的列表维护 -->
+            <li class="transition-all">
+                <details id="1"
+                    class="transition-all w-full bg-slate-50  shadow px-3 py-1 pb-1.5"
+                    >
+                    <summary class="list-none w-full flex flex-wrap">
+                        <div class="grow font-semibold? text-lg">标题</div>
+                        <div class="icon">&#xe879;</div>
+                    </summary>
+                    <div>
+                        内容
+                    </div>
+                </details>
+            </li>
+            <li class="transition-all">
+                <details id="2"
+                    class="transition-all w-full bg-slate-50  shadow px-3 py-1 pb-1.5"
+                    >
+                    <summary class="list-none w-full flex flex-wrap">
+                        <div class="grow font-semibold? text-lg">标题</div>
+                        <div class="icon">&#xe879;</div>
+                    </summary>
+                    <div>
+                        内容
+                        <br>
+                        <img src="./assets/OIP.jpeg" class="inline-block m-auto w-1/3" alt="">
+                        带图片
+                    </div>
+                </details>
+            </li>
+            <li class="transition-all">
+                <details id="3"
+                    class="transition-all w-full bg-slate-50  shadow px-3 py-1 pb-1.5"
+                    >
+                    <summary class="list-none w-full flex flex-wrap">
+                        <div class="grow font-semibold? text-lg">标题</div>
+                        <div class="icon">&#xe879;</div>
+                    </summary>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quam pellentesque nec nam aliquam sem et tortor. Tincidunt vitae semper quis lectus nulla at volutpat diam ut. Nulla aliquet enim tortor at auctor. Dictumst vestibulum rhoncus est pellentesque. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. A scelerisque purus semper eget duis at tellus at. Cursus in hac habitasse platea dictumst quisque. Tellus mauris a diam maecenas sed. Eu scelerisque felis imperdiet proin. Ultricies mi quis hendrerit dolor. Ac auctor augue mauris augue neque gravida in.</p>
+
+                        <p>Arcu felis bibendum ut tristique et egestas quis. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor. Quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis. Elit ullamcorper dignissim cras tincidunt. Feugiat nisl pretium fusce id velit ut tortor pretium. Vitae tortor condimentum lacinia quis. Id porta nibh venenatis cras sed felis eget velit aliquet. Interdum varius sit amet mattis vulputate enim nulla aliquet porttitor. Proin sagittis nisl rhoncus mattis rhoncus urna. Vel risus commodo viverra maecenas accumsan lacus vel facilisis. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper. Est ultricies integer quis auctor elit sed vulputate. Fringilla urna porttitor rhoncus dolor purus non enim praesent. Quam elementum pulvinar etiam non quam lacus. Cras sed felis eget velit aliquet.</p>
+                            
+                        <p>Id donec ultrices tincidunt arcu non sodales. Nunc consequat interdum varius sit amet mattis vulputate enim nulla. Molestie nunc non blandit massa enim nec. Massa id neque aliquam vestibulum morbi blandit. Faucibus pulvinar elementum integer enim. Fames ac turpis egestas integer eget aliquet nibh praesent. Pellentesque elit ullamcorper dignissim cras. Sed odio morbi quis commodo odio aenean sed. Sagittis eu volutpat odio facilisis mauris sit amet massa vitae. A lacus vestibulum sed arcu non odio. Amet consectetur adipiscing elit duis. Imperdiet sed euismod nisi porta lorem mollis. Convallis convallis tellus id interdum velit laoreet id donec. Imperdiet nulla malesuada pellentesque elit eget gravida. Ante in nibh mauris cursus mattis molestie a iaculis. Enim nunc faucibus a pellentesque sit amet.</p>
+                    </div>
+                </details>
+            </li>
+            <li class="transition-all">
+                <details id="4"
+                    class="transition-all w-full bg-slate-50  shadow px-3 py-1 pb-1.5"
+                    >
+                    <summary class="list-none w-full flex flex-wrap">
+                        <div class="grow font-semibold? text-lg">标题</div>
+                        <div class="icon">&#xe879;</div>
+                    </summary> 
+                    <div>
+                        内容
+                        <br>多行
+                        <br>多行
+                        <br>多行
+                        <br>多行
+                        <br>x
+                        <br>
+                    </div>
+                </details>
+            </li>
+        </ul>
+        <script>
+            let currentExpansion = 1;
+            for(let det of document.getElementsByTagName('details')){
+                det.addEventListener('click', (e) => {currentExpansion = det.id;})
+                det.addEventListener('toggle', (e) => {
+                    setTimeout(() => {
+                        for(let xx of document.getElementsByTagName('details') ) if(xx.id != currentExpansion) xx.removeAttribute('open'); 
+                    }, 123);   
+                })
+            }
+        </script>
+    </div>
 </body>
 </html>
