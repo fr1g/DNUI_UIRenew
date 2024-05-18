@@ -129,6 +129,8 @@
 
     <script>
         let onpanel = false;
+        document.documentElement.style.overflowY = 'hidden';
+
         dragFrame.addEventListener('touchstart', (e) => {
             onpanel = true;
             document.documentElement.style.overflowY = 'scroll';
