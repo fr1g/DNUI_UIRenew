@@ -9,6 +9,9 @@ i{
     font-style: normal;
     display: inline-block;
 }
+option::after, option::before{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, 'segoe-fluent-icons' !important;
+}
 
 .inlist-activated > span{
     transform: translateX(.4rem);
