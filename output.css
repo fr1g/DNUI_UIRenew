@@ -977,6 +977,12 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.scale-95 {
+  --tw-scale-x: .95;
+  --tw-scale-y: .95;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 @keyframes pulse {
   50% {
     opacity: .5;
@@ -999,6 +1005,10 @@ video {
 
 .grid-flow-col {
   grid-auto-flow: column;
+}
+
+.grid-cols-11 {
+  grid-template-columns: repeat(11, minmax(0, 1fr));
 }
 
 .grid-cols-2 {
@@ -1189,29 +1199,9 @@ video {
   border-top-color: rgb(228 228 231 / var(--tw-border-opacity));
 }
 
-.bg-blue-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
-}
-
-.bg-blue-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
-}
-
-.bg-blue-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
-}
-
 .bg-blue-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(239 246 255 / var(--tw-bg-opacity));
-}
-
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
 .bg-emerald-100 {
@@ -1222,6 +1212,31 @@ video {
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.bg-main-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(200 218 252 / var(--tw-bg-opacity));
+}
+
+.bg-main-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(175 202 248 / var(--tw-bg-opacity));
+}
+
+.bg-main-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(145 182 245 / var(--tw-bg-opacity));
+}
+
+.bg-main-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(221 233 255 / var(--tw-bg-opacity));
+}
+
+.bg-main-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(95 144 229 / var(--tw-bg-opacity));
 }
 
 .bg-sky-300 {
@@ -1318,6 +1333,12 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-blue-900 {
+  --tw-gradient-from: #1e3a8a var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(30 58 138 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .from-rose-300 {
   --tw-gradient-from: #fda4af var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(253 164 175 / 0) var(--tw-gradient-to-position);
@@ -1352,6 +1373,11 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), #cffafe var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
+.via-main-900 {
+  --tw-gradient-to: rgb(29 72 148 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #1d4894 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
 .via-pink-300 {
   --tw-gradient-to: rgb(249 168 212 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #f9a8d4 var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1377,6 +1403,10 @@ video {
 
 .to-fuchsia-200 {
   --tw-gradient-to: #f5d0fe var(--tw-gradient-to-position);
+}
+
+.to-main-800 {
+  --tw-gradient-to: #2d60b9 var(--tw-gradient-to-position);
 }
 
 .to-sky-300 {
@@ -1625,6 +1655,11 @@ video {
   color: rgb(239 246 255 / var(--tw-text-opacity));
 }
 
+.text-main-950 {
+  --tw-text-opacity: 1;
+  color: rgb(17 54 118 / var(--tw-text-opacity));
+}
+
 .text-sky-50 {
   --tw-text-opacity: 1;
   color: rgb(240 249 255 / var(--tw-text-opacity));
@@ -1766,19 +1801,19 @@ video {
   outline-offset: 2px;
 }
 
-.active\:bg-blue-200:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
-}
-
-.active\:bg-blue-300:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
-}
-
 .active\:bg-emerald-200:active {
   --tw-bg-opacity: 1;
   background-color: rgb(167 243 208 / var(--tw-bg-opacity));
+}
+
+.active\:bg-main-200:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(175 202 248 / var(--tw-bg-opacity));
+}
+
+.active\:bg-main-300:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(145 182 245 / var(--tw-bg-opacity));
 }
 
 .active\:bg-teal-100:active {

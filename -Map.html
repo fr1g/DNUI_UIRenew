@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>-Map</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="extra.css">
 </head>
@@ -32,7 +32,7 @@
 
                         <input id="second-input" type="text" placeholder="出发地" class="block w-full col-span-3 bg-white bg-opacity-50 focus:outline-none focus:bg-opacity-90 focus:border-zinc-100 border border-transparent shadow rounded-lg  p-1 text-sm transition  " />
                         <div 
-                            class="text-center h-full w-full px-1.5 text-sm shadow bg-blue-100 active:bg-blue-200 transition-all p-0.5 rounded-full">
+                            class="text-center h-full w-full px-1.5 text-sm shadow bg-main-100 active:bg-main-200 transition-all p-0.5 rounded-full">
                             <div class="translate-y-0.5">
                                 <span class="inline-block translate-y-0.5" style="rotate: 90deg;">
                                     &#xe8ab;
@@ -70,7 +70,7 @@
                         <input type="text" placeholder="目的地" class="bg-transparent focus:outline-none pl-1.5 focus:bg-white focus:border-zinc-100 border border-transparent rounded-b-lg bg-opacity-60 w-11/12 p-1 text-sm transition  border-t-zinc-200" />
                     </div>
                     <div id="buttons-control" class="h-full scale-125 flex flex-wrap  items-center justify-items-center justify-evenly">
-                        <div class="text-center h-min px-1.5 text-sm scale-100 md:scale-125 bg-blue-100 active:bg-blue-200 transition-all p-0.5 rounded-full">
+                        <div class="text-center h-min px-1.5 text-sm scale-100 md:scale-125 bg-main-100 active:bg-main-200 transition-all p-0.5 rounded-full">
                             <span class="inline-block translate-y-0.5" style="rotate: 90deg;">
                                 &#xe8ab;
                             </span>
@@ -90,7 +90,7 @@
                             scroll-snap-type: x mandatory;
                     ">
                     <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
-                    <li class=" px-2 p-1 text-sm transition bg-blue-500 text-blue-50 bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">选中的地点</li>
+                    <li class=" px-2 p-1 text-sm transition bg-main-500 text-blue-50 bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">选中的地点</li>
                     <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
                     <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
                     <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
@@ -103,7 +103,7 @@
     
                 </ul>
                 <div class="bg-transparent mt-1 p-3">
-                    <div class="rounded-lg p-0.5 border text-center border-blue-300 bg-blue-200 opacity-70 hover:opacity-80 active:opacity-100 transition">
+                    <div class="rounded-lg p-0.5 border text-center border-blue-300 bg-main-200 opacity-70 hover:opacity-80 active:opacity-100 transition">
                         <span class="inline-block my-auto relative">
                             <span class="scale-75 translate-y-0.5 inline-block">&#xe7c1;</span>
                             查看全部 {{ x }}个地点
@@ -135,11 +135,11 @@
         </div>
     </div>
     <div id="map-layer" style="pointer-events: fill; visibility: visible;" class="fixed prevent clear-both bottom-0 top-0 left-0 right-0 h-screen w-full z-20 ?map-content bg-gradient-to-b from-blue-300 to-teal-50" style="pointer-events: fill;">
-        <div class="scale-110 float-right prevent m-2.5 bg-blue-100 rounded-lg shadow p-1 grid gap-1 ">
-            <div class="pointer-events-auto transition w-6 h-6 p-1 bg-blue-200 active:bg-blue-300 bg-opacity-80 grid items-center justify-items-center rounded-md shadow">
+        <div class="scale-110 float-right prevent m-2.5 bg-main-100 rounded-lg shadow p-1 grid gap-1 ">
+            <div class="pointer-events-auto transition w-6 h-6 p-1 bg-main-200 active:bg-main-300 bg-opacity-80 grid items-center justify-items-center rounded-md shadow">
                 <div class="scale-75 -translate-y-0.5">&#xecaf;</div>
             </div>
-            <div class="pointer-events-auto transition w-6 h-6 p-1 bg-blue-200 active:bg-blue-300 bg-opacity-80 grid items-center justify-items-center rounded-md shadow">
+            <div class="pointer-events-auto transition w-6 h-6 p-1 bg-main-200 active:bg-main-300 bg-opacity-80 grid items-center justify-items-center rounded-md shadow">
                 <div class="scale-75 -translate-y-0.5">&#xe82f;</div>
             </div>
         </div>

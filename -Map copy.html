@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>-Map</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="extra.css">
 </head>
@@ -17,7 +17,7 @@
                     <input type="text" placeholder="目的地" class="bg-transparent focus:outline-none pl-1.5 focus:bg-white focus:border-zinc-100 border border-transparent rounded-b-lg bg-opacity-60 w-11/12 p-1 text-lg transition  border-t-zinc-200" />
                 </div>
                 <div id="buttons-control" class="h-full scale-125 flex flex-wrap  items-center justify-items-center justify-evenly">
-                    <div class="text-center h-min px-1.5 text-sm bg-blue-100 p-0.5 rounded-full">
+                    <div class="text-center h-min px-1.5 text-sm bg-main-100 p-0.5 rounded-full">
                         <span class="inline-block translate-y-0.5" style="rotate: 90deg;">
                             &#xe8ab;
                         </span>
@@ -37,7 +37,7 @@
                         scroll-snap-type: x mandatory;
                 ">
                 <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
-                <li class=" px-2 p-1 text-sm transition bg-blue-500 text-blue-50 bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">选中的地点</li>
+                <li class=" px-2 p-1 text-sm transition bg-main-500 text-blue-50 bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">选中的地点</li>
                 <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
                 <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
                 <li class=" px-2 p-1 text-sm transition bg-white bg-opacity-55 active:bg-opacity-85 rounded-lg shadow-sm">地点</li>
@@ -54,7 +54,7 @@
         <!--  -->
     </div>
     <div class="bg-white p-2.5 px-3">
-        <div class="rounded-lg p-0.5 border text-center border-blue-300 bg-blue-200 opacity-70 hover:opacity-80 active:opacity-100 transition">
+        <div class="rounded-lg p-0.5 border text-center border-blue-300 bg-main-200 opacity-70 hover:opacity-80 active:opacity-100 transition">
             <span class="inline-block my-auto relative">
                 <span class="scale-75 translate-y-0.5 inline-block">&#xe7c1;</span>
                 查看全部 {{ x }}个地点
